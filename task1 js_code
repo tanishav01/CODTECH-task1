@@ -1,0 +1,23 @@
+// scripts.js
+
+document.getElementById('add-task-btn').addEventListener('click', function() {
+    let taskText = document.getElementById('new-task').value;
+    if (taskText === '') {
+        alert('Please enter a task.');
+        return;
+    }
+
+    let li = document.createElement('li');
+    li.textContent = taskText;
+
+    let removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove';
+    removeBtn.addEventListener('click', function() {
+        li.remove();
+    });
+
+    li.appendChild(removeBtn);
+    document.getElementById('task-list').appendChild(li);
+
+    document.getElementById('new-task').value = '';
+});
